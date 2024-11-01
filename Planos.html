@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seu plano</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Estilos internos -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1 50px;
+        }
+
+        .header-1 .logo {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .icons div,
+        .header .icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+
+        /* Centralização e proporções dos planos */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: px;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .content {
+            display: flex;
+            gap: 80px;
+            max-width: 1200px;
+            width: 200%;
+            justify-content: center;
+        }
+
+        .plan {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 400px;
+            position: relative;
+            text-align: center;
+        }
+
+        .plan h2 {
+            font-size: 40px;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        .plan img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 200px;
+        }
+
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .plan ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .plan ul li i {
+            margin-right: 15px;
+        }
+
+        .plan ul li.disabled {
+            color: #ccc;
+        }
+
+        .plan ul li.disabled i {
+            color: #ccc;
+        }
+
+        .plan .price {
+            font-size: 40px;
+            color: #27ae60;
+            margin: 20px 0;
+        }
+
+        .plan .price span {
+            font-size: 18px;
+            color: #000;
+        }
+
+        .plan button {
+            background-color: #fff;
+            border: 2px solid #27ae60;
+            color: #27ae60;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .plan button:hover {
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+        .plan.mecenas {
+            border: 2px solid #27ae60;
+        }
+
+        .plan.mecenas button {
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+        .plan.mecenas button:hover {
+            background-color: #fff;
+            color: #27ae60;
+        }
+
+        .plan .badge {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .plan {
+
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px; 
+    width: 390px;  
+    position: relative;
+    text-align: center;
+}
+
+.plan img {
+    width: 100%;
+    height: 250px; /* Ajuste a altura da imagem para diminuir o tamanho do card */
+    border-radius: 10px;
+    margin-bottom: 30px; /* Reduzi a margem inferior da imagem */
+}
+
+.plan h2 {
+    font-size: 40x; /* Diminuí o tamanho da fonte do título para reduzir a altura */
+    color: #27ae60;
+    margin-bottom: 20px; /* Reduzi a margem inferior do título */
+}
+
+.plan ul li {
+    margin-bottom: 8px; /* Reduzi a margem inferior entre os itens da lista */
+    font-size: 20px; /* Diminuí o tamanho da fonte dos itens */
+}
+
+.plan .price {
+    font-size: 40px; /* Reduzi o tamanho da fonte do preço */
+    margin: 20px 0; /* Ajustei a margem superior e inferior */
+}
+
+.plan button {
+    padding: 10px 20px; /* Reduzi o padding do botão */
+    font-size: 25px; /* Ajustei o tamanho da fonte do botão */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header e Navbar -->
+    <header class="header">
+        <div class="header-1">
+            <a href="#" class="logo"> <i class="fas fa-book"></i> Prateleira </a>
+            <form action="" class="search-form">
+                <input type="search" name="" placeholder="Pesquisa..." id="search-box">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <div id="login-btn" class="fas fa-user"></div>
+            </div>
+        </div>
+        <div class="header-2">
+            <nav class="navbar">
+                <a href="index.html">home</a>
+                <a href="#kit">kit's</a>
+                <a href="planos.html">planos</a>
+                <a href="#reviews">reviews</a>
+                <a href="#contato">contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção de Planos -->
+    <div class="container">
+        <h2>Escolha seu Plano</h2>
+        <div class="content">
+            <!-- Plano Básico -->
+            <div class="plan">
+                <h2>Plano Básico</h2>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7SQeRhUKgo289zbkRXMKbVy-OK3fBoH4iUg&s" alt="Plano Básico">
+                <ul>
+                    <li><i class="fas fa-check"></i> Livro Mensal</li>
+                    <li><i class="fas fa-check"></i> Suporte básico</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Capa Premium</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Marcador de Página</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Pôster</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Itens Personalizados</li>
+                </ul>
+                <div class="price">
+                    R$ 59,90 <span>/mês</span>
+                </div>
+                <button>Escolher plano</button>
+            </div>
+    
+            <!-- Plano Premium -->
+            <div class="plan mecenas">
+                <h2>Plano Premium</h2>
+                <img src="https://m.media-amazon.com/images/I/81jMixT-LHL._SL1500_.jpg" alt="Plano Premium">
+                <ul>
+                    <li><i class="fas fa-check"></i> Livros Mensal</li> <!-- Ajustado para singular -->
+                    <li><i class="fas fa-check"></i> Suporte dedicado</li>
+                    <li><i class="fas fa-check"></i> Capa Premium</li>
+                    <li><i class="fas fa-check"></i> Marcador de Página</li>
+                    <li><i class="fas fa-check"></i> Pôster</li>
+                    <li><i class="fas fa-check"></i> Itens Personalizados</li>
+                </ul>
+                <div class="price">
+                    R$ 99,99 <span>/mês</span>
+                </div>
+                <button>Escolher plano</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
