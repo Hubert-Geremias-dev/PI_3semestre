@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .popup {
+            width: 90%; 
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 12px; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: none; 
+            background-color: white;
+        }
+
+        .popup-success {
+            border: 3px solid #27ae60; 
+        }
+
+        .popup-error {
+            border: 3px solid #e74c3c; 
+        }
+
+        .popup-message {
+            color: #2c3e50;
+            font-size: 1.3em; 
+        }
+
+        .btn-success,
+        .btn-error {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 20px 10px 0; 
+            cursor: pointer;
+            border-radius: 5px; 
+            display: inline-block;
+        }
+
+        .btn-error {
+            background-color: #e74c3c;
+        }
+
+        /* Exibir popups com checkboxes */
+        #popup-success:checked ~ .popup-success,
+        #popup-error:checked ~ .popup-error,
+        #popup-confirmation:checked ~ .popup-confirmation {
+            display: block;
+        }
+
+        /* Fundo escuro que cobre a página */
+        .popup-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none; 
+        }
+
+        /* Exibir fundo escuro quando qualquer popup estiver ativo */
+        #popup-success:checked ~ .popup-background,
+        #popup-error:checked ~ .popup-background,
+        #popup-confirmation:checked ~ .popup-background {
+            display: block;
+        }
+
+        /* Para esconder o popup quando os botões são clicados */
+        .close-popup {
+            display: none;
+        }
+
+        /* Quando o botão "OK" é clicado, esconder o popup */
+        #popup-success:checked ~ .popup-success .close-popup,
+        #popup-error:checked ~ .popup-error .close-popup,
+        #popup-confirmation:checked ~ .popup-confirmation .close-popup {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="checkbox" id="popup-success" class="popup-toggle" hidden>
+    <input type="checkbox" id="popup-error" class="popup-toggle" hidden>
+    <input type="checkbox" id="popup-confirmation" class="popup-toggle" hidden>
+
+    <div class="popup popup-success">
+        <p class="popup-message">Bem-vindo! A página foi carregada com sucesso.</p>
+        <label class="btn-success close-popup" for="popup-success">OK</label>
+    </div>
+
+    <div class="popup popup-error">
+        <p class="popup-message">Houve um erro ao realizar a ação.</p>
+        <label class="btn-error close-popup" for="popup-error">OK</label>
+    </div>
+
+    <div class="popup popup-confirmation">
+        <p class="popup-message">Tem certeza que deseja continuar?</p>
+        <label class="btn-success close-popup" for="popup-confirmation">Confirmar</label>
+        <label class="btn-error close-popup" for="popup-confirmation">Cancelar</label>
+    </div>
+
+    <div class="popup-background"></div>
+
+    <!-- Botões para chamar os popups -->
+    <label class="btn-success" for="popup-success">Mostrar Sucesso</label>
+    <label class="btn-error" for="popup-error">Mostrar Erro</label>
+    <label class="btn-success" for="popup-confirmation">Mostrar Confirmação</label>
+
+</body>
+</html>
